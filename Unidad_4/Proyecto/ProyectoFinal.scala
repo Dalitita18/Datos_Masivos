@@ -41,16 +41,15 @@ val data  = spark.read.option("header","true").option("inferSchema", "true").opt
 data.printSchema()
 data.head(1)
 
+//Preparacion de datos
 val labelIndexer = new StringIndexer().setInputCol("y").setOutputCol("label").fit(data)
 val assembler = (new VectorAssembler()
                   .setInputCols(Array("age","balance","day","duration","campaign","pdays","previous"))
                   .setOutputCol("features"))
 
 
-// - SVM
-
 // - Decision Tree
-val Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3))
+val Array(trainingData, testData) = data.randomSplit(Array(0.6, 0.4))
 val dt = new DecisionTreeClassifier().setLabelCol("label").setFeaturesCol("features")
 val pipeline = new Pipeline().setStages(Array(labelIndexer, assembler, dt))
 val model = pipeline.fit(trainingData)
@@ -58,12 +57,13 @@ val predictions = model.transform(testData)
 predictions.select("label", "features").show(5)
 val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setMetricName("accuracy")
 val accuracy = evaluator.evaluate(predictions)
-println("Test Error = " + (1.0 - accuracy))
+println("Testo Error = " + (1.0 -accuracy))
 val treeModel = model.stages(2).asInstanceOf[DecisionTreeClassificationModel]
 println("Learned classification tree model:\n" + treeModel.toDebugString)
+println("////////////////////////////////////////////////////////////////////////")
 
 // - Logistic Regresion
-val Array(training, test) = data.randomSplit(Array(0.7, 0.3), seed = 12345)
+val Array(training, test) = data.randomSplit(Array(0.9, 0.1), seed = 12345)
 val lr = new LogisticRegression()
 val pipeline = new Pipeline().setStages(Array(labelIndexer,assembler,lr))
 val model = pipeline.fit(training)
@@ -74,17 +74,17 @@ val metrics = new MulticlassMetrics(predictionAndLabels)
 // Matriz de confusion
 println("Confusion matrix:")
 println(metrics.confusionMatrix)
-
-metrics.accuracy
+println("Accuracy Logistic Regresion = " + metrics.accuracy)
+println("////////////////////////////////////////////////////////////////////////")
 
 // - Multilayer perceptron
 
 val Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3), seed=1234L)
-val capas = Array[Int](7, 5, 5, 2)
+val capas = Array[Int](7,5,3,2)
 val mlp = new MultilayerPerceptronClassifier().setLayers(capas).setLabelCol("label").setFeaturesCol("features").setPredictionCol("prediction").setBlockSize(128).setSeed(1234L).setMaxIter(100)
 val pipeline = new Pipeline().setStages(Array(labelIndexer,assembler,mlp))
 val modelo = pipeline.fit(trainingData)
 val resultado = modelo.transform(testData)
 val predictionAndLabels = resultado.select("prediction", "label")
 val evaluator = new MulticlassClassificationEvaluator().setMetricName("accuracy")
-println("Test set accuracy = " + evaluator.evaluate(predictionAndLabels))
+println("Test set accuracy Multilayer perceptron = " + evaluator.evaluate(predictionAndLabels))
