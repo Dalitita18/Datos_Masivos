@@ -12,8 +12,8 @@ En este proyecto analizaremos 3 algoritmos de machine learning como lo son los D
 # Marco teorico de los algoritmos
 
 ## Decision Tree
-Árboles de decisión Un árbol de decisión es un modelo de predicción cuyo objetivo principal es el aprendizaje inductivo a partir de observaciones y construcciones lógicas. Son muy similares a los sistemas de predicción basados en reglas, que sirven para representar y categorizar una serie de condiciones que suceden de forma sucesiva para la solución de un problema. Constituyen probablemente el modelo de clasificación más utilizado y popular. El conocimiento obtenido durante el proceso de aprendizaje inductivo se representa mediante un árbol. Un árbol gráficamente se representa por un conjunto de nodos, hojas y ramas. El nodo principal o raíz es el atributo a partir del cual se inicia el proceso de clasificación; los nodos internos corresponden a cada una de las preguntas acerca del atributo en particular del problema. Cada posible respuesta a los cuestionamientos se representa mediante un nodo hijo. Las ramas que salen de cada uno de estos nodos se encuentran etiquetadas con los posibles valores del atributo [**1**](#1-Russell,-S.-and-P.-Norvig,-Artificial-Intelligence:-A-Modern-Approach.-Second-ed.-Upper-Saddle-River-(N-J):-Prentice-Hall/-Pearson-Education;-2003.) . Los nodos finales o nodos hoja corresponden a una decisión, la cual coincide con una de las variables clase del problema a resolver (Ver Figura 1). 
-Este modelo se construye a partir de la descripción narrativa de un problema, ya que provee una visión gráfica de la toma de decisión, especificando las variables que son evaluadas, las acciones que deben ser tomadas y el orden en el que la toma de decisión será efectuada. Cada vez que se ejecuta este tipo de modelo, sólo un camino será seguido dependiendo del valor actual de la variable evaluada. Los valores que pueden tomar las variables para este tipo de modelos pueden ser discretos o continuos [**2**](#2-Breiman-L,-Friedman-JH,-Olshen-RA,-Stone-CJ.-Classification-and-Regression-Trees,-Wadsworth-(New-York);-1994). 
+Árboles de decisión Un árbol de decisión es un modelo de predicción cuyo objetivo principal es el aprendizaje inductivo a partir de observaciones y construcciones lógicas. Son muy similares a los sistemas de predicción basados en reglas, que sirven para representar y categorizar una serie de condiciones que suceden de forma sucesiva para la solución de un problema. Constituyen probablemente el modelo de clasificación más utilizado y popular. El conocimiento obtenido durante el proceso de aprendizaje inductivo se representa mediante un árbol. Un árbol gráficamente se representa por un conjunto de nodos, hojas y ramas. El nodo principal o raíz es el atributo a partir del cual se inicia el proceso de clasificación; los nodos internos corresponden a cada una de las preguntas acerca del atributo en particular del problema. Cada posible respuesta a los cuestionamientos se representa mediante un nodo hijo. Las ramas que salen de cada uno de estos nodos se encuentran etiquetadas con los posibles valores del atributo [1]. Los nodos finales o nodos hoja corresponden a una decisión, la cual coincide con una de las variables clase del problema a resolver (Ver Figura 1). 
+Este modelo se construye a partir de la descripción narrativa de un problema, ya que provee una visión gráfica de la toma de decisión, especificando las variables que son evaluadas, las acciones que deben ser tomadas y el orden en el que la toma de decisión será efectuada. Cada vez que se ejecuta este tipo de modelo, sólo un camino será seguido dependiendo del valor actual de la variable evaluada. Los valores que pueden tomar las variables para este tipo de modelos pueden ser discretos o continuos [2]. 
 
 
 Figura 1: Estructura de un árbol de decisión.
@@ -22,13 +22,13 @@ Un algoritmo de generación de árboles de decisión consta de 2 etapas: la prim
 
 
  ## Logistic Regression
-La técnica de la regresión logística se originó en la década de los 60 con el trabajo de Cornfield, Gordon y Smith [**3**](#3-Cornfield-J-Gordon-T-Smith-WN.-Quantal-response-curves-for-experimentally-uncontroled-variables.-Bull-Int-Statist-Inst-1961;38:97-115.) en 1967 Walter y Duncan la utilizan ya en la forma que la conocemos actualmente, o sea para estimar la probabilidad de ocurrencia de un proceso en función de ciertas variables. [**4**](#4-Walter-S,-Duncan-D.-Estimation-of-the-probability-of-an-event-as-a-function-of-several-variables.-Biometrika-1967;54:167-79.) Su uso se incrementa desde principios de los 80 como consecuencia de los adelantos ocurridos en el campo de la computación.
+La técnica de la regresión logística se originó en la década de los 60 con el trabajo de Cornfield, Gordon y Smith [3] en 1967 Walter y Duncan la utilizan ya en la forma que la conocemos actualmente, o sea para estimar la probabilidad de ocurrencia de un proceso en función de ciertas variables. [4]. Su uso se incrementa desde principios de los 80 como consecuencia de los adelantos ocurridos en el campo de la computación.
 
 El objetivo de esta técnica estadística es expresar la probabilidad de que ocurra un hecho como función de ciertas variables, supongamos que son k (k ³ 1), que se consideran potencialmente influyentes. La regresión logística, al igual que otras técnicas estadísticas multivariadas, da la posibilidad de evaluar la influencia de cada una de las variables independientes sobre la variable respuesta y controlar el efecto del resto. Tendremos, por tanto, una variable dependiente, llamémosla Y, que puede ser dicotómica o politómica (en este trabajo nos referiremos solamente al primer caso) y una o más variables independientes, llamémosle X.
 
 Al ser la variable Y dicotómica, podrá tomar el valor "O" si el hecho no ocurre y "1" si el hecho ocurre; el asignar los valores de esta manera o a la inversa es intrascendente, pero es muy importante tener en cuenta la forma en que se ha hecho llegado el momento de interpretar los resultados. Las variables independientes (también llamadas explicativas) pueden ser de cualquier naturaleza: cualitativas o cuantitativas. La probabilidad de que Y=1 se denotará por p.
 
-La forma analítica en que la probabilidad objeto de interés se vincula con las variables explicativas es la siguiente. [**5**](#5-Silva-LC.-Excursión-a-la-regresión-logística-en-ciencias-de-la-salud.-Madrid:Díaz-Santos,-1994:3-11.)
+La forma analítica en que la probabilidad objeto de interés se vincula con las variables explicativas es la siguiente. [5]
 
 Esta expresión es la que se conoce como función logística; donde exp denota la función exponencial y a1, b1, b2... bk son los parámetros del modelo. Al producir la función exponencial valores mayores que 0 para cualquier argumento, p tomará sólo valores entre 0 y 1.
 
@@ -36,7 +36,7 @@ Si b es positiva (mayor que 0) entonces la función es creciente y decreciente e
 
 
 ## Multilayer perceptron
-Las RNA de tipo Perceptrón Multicapa (PM) se encuentran entre las arquitecturas de red más poderosas y populares. Están formadas por una capa de entrada, un número arbitrario de capas ocultas, y una capa de salida. Cada una de las neuronas ocultas o de salida recibe una entrada de las neuronas de la capa previa (conexiones hacia atrás), pero no existen conexiones laterales entre las neuronas dentro de cada capa [6](#6-Castillo,-E.,-Cobo,-A.,-Gutiérrez,-J.M.,-Pruneda,-R.E.:-Introducción-a-las-Redes-Funcionales-con-Aplicaciones.-Un-Nuevo-Paradigma-Neuronal.-Editorial-Paraninfo-S.A.-Madrid.-España.-pp.5-8;-8-16;-21-24,-30-34,-53-100.-(1999)).
+Las RNA de tipo Perceptrón Multicapa (PM) se encuentran entre las arquitecturas de red más poderosas y populares. Están formadas por una capa de entrada, un número arbitrario de capas ocultas, y una capa de salida. Cada una de las neuronas ocultas o de salida recibe una entrada de las neuronas de la capa previa (conexiones hacia atrás), pero no existen conexiones laterales entre las neuronas dentro de cada capa [6]
 
 La capa de entrada contiene tantas neuronas como categorías correspondan a las variables independientes que se desean representar. La capa de salida corresponde a la variable respuesta, que en este caso es una variable categórica. 
 
@@ -134,10 +134,9 @@ Es bueno en analizar el resultado de los diferentes algoritmos con el afán de e
 Un de talle un poco fuera del algoritmo, pude notar que spark con Scala son un poco más rápido y preciso.
 
 # Referencias
-
-# 1 Russell, S. and P. Norvig, Artificial Intelligence: A Modern Approach. Second ed. Upper Saddle River (N J): Prentice Hall/ Pearson Education; 2003. 
-# 2 Breiman L, Friedman JH, Olshen RA, Stone CJ. Classification and Regression Trees, Wadsworth (New York); 1994
-# 3 Cornfield J, Gordon T, Smith WN. Quantal response curves for experimentally uncontroled variables. Bull Int Statist Inst 1961;38:97-115.
-# 4 Walter S, Duncan D. Estimation of the probability of an event as a function of several variables. Biometrika 1967;54:167-79.
-# 5 Silva LC. Excursión a la regresión logística en ciencias de la salud. Madrid:Díaz Santos, 1994:3-11.
-# 6 Castillo, E., Cobo, A., Gutiérrez, J.M., Pruneda, R.E.: Introducción a las Redes Funcionales con Aplicaciones. Un Nuevo Paradigma Neuronal. Editorial Paraninfo S.A. Madrid. España. pp.5-8; 8-16; 21-24, 30-34, 53-100. (1999) 
+[1] Russell, S. and P. Norvig, Artificial Intelligence: A Modern Approach. Second ed. Upper Saddle River (N J): Prentice Hall/ Pearson Education; 2003. 
+[2] Breiman L, Friedman JH, Olshen RA, Stone CJ. Classification and Regression Trees, Wadsworth (New York); 1994
+[3] Cornfield J, Gordon T, Smith WN. Quantal response curves for experimentally uncontroled variables. Bull Int Statist Inst 1961;38:97-115.
+[4] Walter S, Duncan D. Estimation of the probability of an event as a function of several variables. Biometrika 1967;54:167-79.
+[5] Silva LC. Excursión a la regresión logística en ciencias de la salud. Madrid:Díaz Santos, 1994:3-11.
+[6] Castillo, E., Cobo, A., Gutiérrez, J.M., Pruneda, R.E.: Introducción a las Redes Funcionales con Aplicaciones. Un Nuevo Paradigma Neuronal. Editorial Paraninfo S.A. Madrid. España. pp.5-8; 8-16; 21-24, 30-34, 53-100. (1999) 
