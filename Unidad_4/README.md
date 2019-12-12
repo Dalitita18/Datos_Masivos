@@ -121,7 +121,7 @@ println("Test set accuracy Multilayer perceptron = " + evaluator.evaluate(predic
 | Logistic Regression    | 0.8910135233386651    |
 | Multilayer perceptron  | 0.8827505142521305    | 
 
- Tabla de Decision Tree
+### Tabla de Decision Tree
 
 | Porcentaje de datos    |      Medidas de                    |
 | de prueba y test       |    tiempo y memoria                |
@@ -137,9 +137,9 @@ println("Test set accuracy Multilayer perceptron = " + evaluator.evaluate(predic
 | Prueba 50% Test 50%    | Used Memory: 258.89707999999996    |
 |                        | durationSeconds: Long = 17         |
 
-Tabla de Multilayer perceptron
+### Tabla de Multilayer perceptron
 
-| Porcentaje de datos    |      Medidas de                    |
+
 | de prueba y test       |    tiempo y memoria                |
 |------------------------|------------------------------------|
 | Prueba 60% Test 40%    | Used Memory: 299.515384            |
@@ -153,7 +153,7 @@ Tabla de Multilayer perceptron
 | Prueba 90% Test 10%    | Used Memory: 471.933632            |
 |     (7,5,2,2)          | durationSeconds: Long = 32         |
 
-Tabla de Logistic Regresion
+### Tabla de Logistic Regresion
 
 | Porcentaje de datos    |      Medidas de                    |
 | de prueba y test       |    tiempo y memoria                |
