@@ -113,15 +113,61 @@ println("Test set accuracy Multilayer perceptron = " + evaluator.evaluate(predic
 
 # Resultados
 
-Tabla de resultados
+#### Tabla de Exactitud
 
-Algoritmo               Exactitud
+| Algoritmo              |    Exactitud Maxima   |
+|------------------------|-----------------------|
+| Decision Tree          | 0.890240328253224     |
+| Logistic Regression    | 0.8910135233386651    |
+| Multilayer perceptron  | 0.8827505142521305    | 
 
-Decision Tree           0.890240328253224
+#### Tabla de Decision Tree
 
-Logistic Regression     0.8910135233386651
- 
-Multilayer perceptron   0.8827505142521305
+| Porcentaje de datos    |      Medidas de                    |
+| de prueba y test       |    tiempo y memoria                |
+|------------------------|------------------------------------|
+| Prueba 60% Test 40%    | Used Memory: 250.84401599999998    |
+|                        | durationSeconds: Long = 25         |
+| Prueba 70% Test 30%    | Used Memory: 401.83395199999995    |
+|                        | durationSeconds: Long = 16         |
+| Prueba 80% Test 20%    | Used Memory: 330.96304             |
+|                        | durationSeconds: Long = 36         |
+| Prueba 90% Test 10%    | Used Memory: 460.322856            |
+|                        | durationSeconds: Long = 22         |
+| Prueba 50% Test 50%    | Used Memory: 258.89707999999996    |
+|                        | durationSeconds: Long = 17         |
+
+#### Tabla de Multilayer perceptron
+
+| Porcentaje de datos    |      Medidas de                    |
+| de prueba y test       |    tiempo y memoria                |
+|------------------------|------------------------------------|
+| Prueba 60% Test 40%    | Used Memory: 299.515384            |
+|          (7,5,3,2)     | durationSeconds: Long =  41        |
+| Prueba 70% Test 30%    | Used Memory: 431.11094399999996    |
+|        (7,4,3,2)       | durationSeconds: Long = 24         |
+| Prueba 60% Test 40%    | Used Memory: 294.59689599999996    |
+|      (7,4,2,2)         | durationSeconds: Long = 22         |
+| Prueba 50% Test 50%    | Used Memory: 300.34875999999997    |
+|      (7,5,3,2)         | durationSeconds: Long = 51         |
+| Prueba 90% Test 10%    | Used Memory: 471.933632            |
+|     (7,5,2,2)          | durationSeconds: Long = 32         |
+
+#### Tabla de Logistic Regresion
+
+| Porcentaje de datos    |      Medidas de                    |
+| de prueba y test       |    tiempo y memoria                |
+|------------------------|------------------------------------|
+| Prueba 60% Test 40%    | Used Memory: 370.954752            |
+|                        | durationSeconds: Long = 38         |
+| Prueba 70% Test 30%    | Used Memory: 325.091               |
+|                        | durationSeconds: Long = 15         |
+| Prueba 80% Test 20%    | Used Memory: 429.23424             |
+|                        | durationSeconds: Long = 25         |
+| Prueba 90% Test 10%    | Used Memory: 368.6954              |
+|                        | durationSeconds: Long = 46         |
+| Prueba 50% Test 50%    | Used Memory: 405.25988             |
+|                        | durationSeconds: Long = 19         |
 
 
 # Conclusiones
@@ -129,6 +175,10 @@ Multilayer perceptron   0.8827505142521305
 En este proyecto se puede analizar como a un mismo conjunto de datos se le pueden aplicar varias técnicas de algoritmos de machine learning, y cada una de estas da un resultado.
 Es bueno en analizar el resultado de los diferentes algoritmos con el afán de encontrar el mejor.
 Un de talle un poco fuera del algoritmo, pude notar que spark con Scala son un poco más rápido y preciso.
+
+En cuestion de tiempo la regresion logica es mas rapida, mas la exactitud es la mas baja de las 3, y en general es la que mas memoria usa.
+
+Multilayer perceptron es la que mas tiempo duro en general, mas su exactitud es buena y el uso de memoria es similar al de arboles.
 
 # Referencias
 [1] Russell, S. and P. Norvig, Artificial Intelligence: A Modern Approach. Second ed. Upper Saddle River (N J): Prentice Hall/ Pearson Education; 2003. 
